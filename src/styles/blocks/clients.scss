@@ -1,0 +1,133 @@
+@use "@/styles/helpers" as *;
+
+.clients {
+  background-color: var(--color-blue-04);
+  padding-block: fluid(96, 40);
+  border-top-left-radius: fluid(200, 150);
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    row-gap: fluid(123, 40);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    column-gap: fluid(100, 50);
+  }
+
+  &__title {
+    width: fluid(223, 120);
+    color: var(--color-white);
+    flex-shrink: 0;
+  }
+
+  &__description {
+    width: fluid(223, 120);
+    color: var(--color-white);
+    flex-basis: 60%;
+    line-height: 26px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &__item {
+    border-right: 1px solid var(--color-white);
+    border-bottom: 1px solid var(--color-white);
+  }
+
+  &__card-link {
+    @include fluid-text(20, 15);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: fluid(40, 30);
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+    color: var(--color-white);
+
+    &:hover {
+      background-color: var(--color-blue-03);
+    }
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .clients__item {
+
+    &:nth-child(4n) {
+      border-right: none;
+    }
+
+    &:nth-last-child(-n+4) {
+      border-bottom: none;
+    }
+  }
+}
+
+
+@media (max-width: 1200px) {
+  .clients {
+    border-top-left-radius: 100px;
+
+    &__list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    &__item {
+
+      &:nth-child(3n) {
+        border-right: none;
+      }
+
+      &:nth-last-child(-n+2) {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .clients {
+    border-top-left-radius: 0;
+
+    &__header {
+      align-items: start;
+      flex-direction: column;
+      row-gap: 20px;
+    }
+
+    &__list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__item {
+      &:nth-child(3n) {
+        border-right: 1px solid var(--color-white);
+      }
+
+      &:nth-child(2n) {
+        border-right: none;
+      }
+
+      &:nth-last-child(-n+2) {
+        border-bottom: none;
+      }
+    }
+
+    &__title {
+      width: 100%;
+    }
+
+    &__description {
+      width: 100%;
+    }
+  }
+}
