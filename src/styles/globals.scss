@@ -1,3 +1,5 @@
+@use "@/styles/helpers" as *;
+
 html {
   scrollbar-gutter: auto;
 
@@ -11,6 +13,14 @@ body {
   flex-direction: column;
   font-family: var(--font-family-base);
   color: var(--color-blue-01);
+}
+
+h2 {
+  @include fluid-text(36, 26);
+
+  font-weight: 600;
+  line-height: fluid(46, 30);
+  letter-spacing: 5%;
 }
 
 a,

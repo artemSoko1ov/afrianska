@@ -1,7 +1,7 @@
 @use "@/styles/helpers" as *;
 
 .header {
-  background-color: var(--color-white);
+  background-color: transparent;
   position: sticky;
   z-index: 5;
   top: 0;
@@ -15,6 +15,7 @@
   @keyframes scrolling-header {
     to {
       padding-block: 10px;
+      background-color: var(--color-white);
     }
   }
 

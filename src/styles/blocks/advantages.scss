@@ -1,0 +1,102 @@
+@use "@/styles/helpers" as *;
+
+.advantages {
+  padding-block: fluid(180, 60);
+
+  &__inner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__title {
+    position: absolute;
+    width: 358px;
+    left: 15px;
+    color: var(--color-blue-02);
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: fluid(100, 60);
+  }
+
+  &__card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: fluid(60, 30);
+    width: 100%;
+    max-width: 380px;
+    max-height: 525px;
+    padding: fluid(48, 30);
+    letter-spacing: 5%;
+    border-radius: var(--border-radius-l);
+    box-shadow: var(--box-shadow-01);
+
+    &-body {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+    }
+
+    &-title {
+      @include fluid-text(20, 16);
+
+      line-height: 30px;
+    }
+
+    &-image-2 {
+      position: relative;
+      bottom: 70px;
+      margin-bottom: -70px;
+    }
+
+    &-link {
+      display: flex;
+      align-items: center;
+      column-gap: 28px;
+      color: var(--color-blue-04);
+      font-weight: 600;
+    }
+  }
+
+  &__item {
+    &-1 {
+      position: relative;
+      top: 300px;
+    }
+
+    &-2 {
+      position: relative;
+    }
+
+    &-3 {
+      grid-area: 2/2/3/3;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .advantages {
+    &__inner {
+      flex-direction: column;
+      align-items: center;
+      row-gap: 50px;
+    }
+
+    &__title {
+      position: static;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__item-1 {
+      position: static;
+    }
+  }
+}
