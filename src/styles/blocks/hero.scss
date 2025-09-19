@@ -44,7 +44,7 @@
   }
 
   &__image {
-    width: 80%;
+    width: fluid(625, 330);
     flex: 0 0 70%;
     animation: float 3s ease-in-out infinite;
 
@@ -62,7 +62,7 @@
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1385px) {
   .hero__body {
     flex: 0 1 56%;
   }
