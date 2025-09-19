@@ -1,0 +1,44 @@
+@use "@/styles/helpers" as *;
+
+.header {
+  background-color: var(--color-white);
+  position: sticky;
+  z-index: 5;
+  top: 0;
+  padding-block: fluid(40, 10) 10px;
+  transition-duration: var(--transition-duration);
+  animation-name: scrolling-header;
+  animation-fill-mode: both;
+  animation-timeline: scroll();
+  animation-range: 0 100px;
+
+  @keyframes scrolling-header {
+    to {
+      padding-block: 10px;
+    }
+  }
+
+  &--fixed {
+    padding-block: 10px;
+  }
+
+  &__inner {
+    width: 1200px;
+    margin-inline: auto;
+    padding-inline: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__burger-button {
+    background-color: transparent;
+    border: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .header__inner {
+    width: 100%;
+  }
+}
