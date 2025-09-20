@@ -3,7 +3,7 @@
 .clients {
   background-color: var(--color-blue-04);
   padding-block: fluid(96, 40);
-  border-top-left-radius: fluid(200, 150);
+  border-top-left-radius: 15vw;
 
   &__inner {
     display: flex;
@@ -75,8 +75,6 @@
 
 @media (max-width: 1200px) {
   .clients {
-    border-top-left-radius: 100px;
-
     &__list {
       grid-template-columns: repeat(3, 1fr);
     }

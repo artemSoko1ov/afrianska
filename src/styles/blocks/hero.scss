@@ -40,12 +40,12 @@
 
   &__button {
     margin-top: 29px;
-    width: fluid(200, 140);
+    width: fluid(200, 160);
   }
 
   &__image {
     width: fluid(625, 330);
-    flex: 0 0 70%;
+    flex: 0 0 68%;
     animation: float 3s ease-in-out infinite;
 
     @keyframes float {

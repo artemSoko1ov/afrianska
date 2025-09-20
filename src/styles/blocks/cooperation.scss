@@ -1,0 +1,85 @@
+@use "@/styles/helpers" as *;
+
+.cooperation {
+  position: relative;
+  padding-block: fluid(96, 40);
+  background-color: var(--color-blue-04);
+
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 80%;
+    height: 1px;
+    background-color: var(--color-white);
+  }
+
+  &__wrapper {
+    position: relative;
+    z-index: 1;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    right: fluid(96, 80);
+    background-color: var(--color-blue-02);
+    border-top-right-radius: 15vw;
+    z-index: 0;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    row-gap: fluid(32, 26);
+    max-width: 460px;
+    color: var(--color-white);
+  }
+
+  &__title {
+    max-width: 320px;
+  }
+
+  &__button {
+    padding-inline: fluid(74, 28);
+  }
+}
+
+@media (max-width: 1200px) {
+  .cooperation {
+    &__inner {
+      align-items: start;
+      flex-direction: column;
+      row-gap: fluid(32, 26);
+    }
+
+    &__body {
+      max-width: 80vw;
+    }
+
+    &__title {
+      max-width: inherit;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .cooperation {
+    &::before {
+      inset: 0;
+      border-top-right-radius: 0;
+    }
+
+    &__body {
+      max-width: 100%;
+    }
+  }
+}
