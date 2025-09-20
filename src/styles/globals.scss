@@ -52,4 +52,9 @@ a {
   background: var(--color-blue-04);
   border: none;
   border-radius: var(--border-radius-l);
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    scale: 1.05;
+  }
 }

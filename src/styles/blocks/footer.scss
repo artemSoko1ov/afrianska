@@ -1,0 +1,123 @@
+@use "@/styles/helpers" as *;
+
+.footer {
+  position: relative;
+  padding-block: fluid(96, 40) fluid(64, 40);
+  background-color: var(--color-blue-04);
+  color: var(--color-white);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    right: fluid(96, 80);
+    background-color: var(--color-blue-02);
+    z-index: 0;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    row-gap: fluid(64, 45);
+  }
+
+  &__wrapper {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__body {
+    display: flex;
+    align-items: start;
+    gap: fluid(100, 0);
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    row-gap: fluid(33, 20);
+
+    &-list {
+      max-width: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      row-gap: fluid(24, 16);
+    }
+
+    &-item {
+      display: flex;
+      justify-content: flex-start;
+      align-items: start;
+      column-gap: 15px;
+    }
+  }
+
+  &__logo {
+
+    &-link {
+      display: flex;
+      align-items: center;
+      column-gap: 15px;
+    }
+
+    &-text {
+      @include fluid-text(28, 20);
+
+      font-weight: 600;
+      letter-spacing: 2%;
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    align-items: center;
+    column-gap: fluid(77, 33);
+  }
+
+  &__menu {
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      row-gap: 16px;
+    }
+
+    &-item {
+      &:first-child .footer__menu-link {
+        @include fluid-text(20, 18);
+
+        font-weight: 600;
+      }
+
+      &:not(:first-child) .footer__menu-link {
+        @include fluid-text(16, 14);
+      }
+    }
+  }
+
+  &__copyright {
+    color: var(--color-blue-04);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    &::before {
+      inset: 0;
+    }
+  }
+}
+
+@media (max-width: 656px) {
+  .footer {
+    &__body {
+      flex-direction: column;
+      row-gap: 50px;
+    }
+
+    &__navigation {
+      justify-content: space-between;
+    }
+  }
+}
