@@ -1,10 +1,11 @@
 export default class Header {
+
   selectors = {
-    root: '[data-js-header]',
+    root: "[data-js-header]",
   };
 
   stateClasses = {
-    isFixed: 'is-fixed',
+    isFixed: "is-fixed",
   };
 
   constructor() {
@@ -19,9 +20,10 @@ export default class Header {
     } else {
       this.rootElement.classList.remove(this.stateClasses.isFixed);
     }
-  }
+  };
 
   bindEvents() {
     window.addEventListener("scroll", this.handleScroll);
   }
+
 }

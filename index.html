@@ -8,7 +8,7 @@
   />
   <link
     rel="shortcut icon"
-    href="./src/assets/images/logo.svg"
+    href="./src/assets/images/logo/logo-dark.svg"
     type="image/x-icon"
   />
   <title>Afrianska</title>
@@ -503,6 +503,7 @@
     <form
       class="modal__form"
       action=""
+      data-js-form
     >
       <div class="modal__form-item">
         <label
@@ -518,7 +519,7 @@
           type="text"
           placeholder="Your Name"
         >
-        <span class="modal__form-error"></span>
+        <span class="modal__form-error" data-js-form-field-errors></span>
       </div>
       <div class="modal__form-item">
         <label
@@ -534,7 +535,7 @@
           type="text"
           placeholder="Your Email"
         >
-        <span class="modal__form-error"></span>
+        <span class="modal__form-error" data-js-form-field-errors></span>
       </div>
       <div class="modal__form-item">
         <label
@@ -549,7 +550,7 @@
           name="message"
           placeholder="Your Message"
         ></textarea>
-        <span class="modal__form-error"></span>
+        <span class="modal__form-error" data-js-form-field-errors></span>
       </div>
       <div class="modal__form-item">
         <button
