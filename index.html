@@ -14,7 +14,7 @@
   <title>Afrianska</title>
 </head>
 <body>
-<header class="header">
+<header class="header" data-js-header>
   <div class="header__inner">
     <div class="header__logo">
       <img
@@ -261,6 +261,7 @@
         <button
           class="cooperation__button button"
           id="open-modal"
+          data-js-modal-button-open
           type="button"
         >
           Let’s Talk
@@ -403,14 +404,17 @@
 <div
   class="modal-overlay"
   id="modal-overlay"
+  data-js-modal-overlay
 >
   <div
     class="modal"
     id="modal"
+    data-js-modal
   >
     <button
       class="modal__close"
       id="close-modal"
+      data-js-modal-button-close
       type="button"
     >
       <svg

@@ -1,34 +1,52 @@
-const modalOverlay = document.querySelector('#modal-overlay')
-const modal = modalOverlay.querySelector('#modal')
-const openModalButton = document.querySelector('#open-modal')
-const closeButton = modal.querySelector('#close-modal')
+export default class Modal {
+  selectors = {
+    root: '[data-js-modal]',
+    overlayModal: '[data-js-modal-overlay]',
+    buttonOpen: '[data-js-modal-button-open]',
+    buttonClose: '[data-js-modal-button-close]',
+  };
 
-function handleOverlayClick(event) {
-  if (event.target === modalOverlay) {
-    closeModal()
+  stateClasses = {
+    isActive: 'is-active',
+    isLock: 'is-lock',
+  };
+
+  constructor() {
+    this.overlayModalElement = document.querySelector(this.selectors.overlayModal);
+    this.rootElement = document.querySelector(this.selectors.root);
+    this.openButtonElement = document.querySelector(this.selectors.buttonOpen);
+    this.closeButtonElement = document.querySelector(this.selectors.buttonClose);
+
+    this.bindEvents();
   }
-}
 
-function handleKeyDown(event) {
-  if (event.key === 'Escape') {
-    closeModal()
+  open = () => {
+    this.overlayModalElement.classList.add(this.stateClasses.isActive);
+    document.documentElement.classList.add(this.stateClasses.isLock);
+    document.addEventListener('keydown', this.handleKeyDown);
   }
-}
 
-function showModal() {
-  modalOverlay.classList.add('active')
-  document.documentElement.classList.toggle('is-lock')
-  document.documentElement.addEventListener('keydown', handleKeyDown)
-}
+  close = () => {
+    this.overlayModalElement.classList.remove(this.stateClasses.isActive);
+    document.documentElement.classList.remove(this.stateClasses.isLock);
+    document.removeEventListener('keydown', this.handleKeyDown);
+  }
 
-function closeModal() {
-  modalOverlay.classList.remove('active')
-  document.documentElement.classList.remove('is-lock')
-  document.removeEventListener('keydown', handleKeyDown)
-}
+  handleOverlayClick = (event) => {
+    if (event.target === this.overlayModalElement) {
+      this.close();
+    }
+  }
 
-export default function modalModule() {
-  openModalButton.addEventListener('click', showModal)
-  modalOverlay.addEventListener('click', handleOverlayClick)
-  closeButton.addEventListener('click', closeModal)
+  handleKeyDown = (event) => {
+    if (event.key === 'Escape') {
+      this.close();
+    }
+  }
+
+  bindEvents() {
+    this.openButtonElement.addEventListener('click', this.open);
+    this.closeButtonElement.addEventListener('click', this.close);
+    this.overlayModalElement.addEventListener('click', this.handleOverlayClick);
+  }
 }

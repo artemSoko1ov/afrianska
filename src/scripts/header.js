@@ -1,13 +1,27 @@
-function handleScroll() {
-  const header = document.querySelector(".header");
+export default class Header {
+  selectors = {
+    root: '[data-js-header]',
+  };
 
-  if (window.scrollY > 50) {
-    header.classList.add("header--fixed");
-  } else {
-    header.classList.remove("header--fixed");
+  stateClasses = {
+    isFixed: 'is-fixed',
+  };
+
+  constructor() {
+    this.rootElement = document.querySelector(this.selectors.root);
+
+    this.bindEvents();
   }
-}
 
-export default function headerModule() {
-  window.addEventListener("scroll", handleScroll);
+  handleScroll = () => {
+    if (window.scrollY > 50) {
+      this.rootElement.classList.add(this.stateClasses.isFixed);
+    } else {
+      this.rootElement.classList.remove(this.stateClasses.isFixed);
+    }
+  }
+
+  bindEvents() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
 }

@@ -31,7 +31,7 @@
     pointer-events: none;
     transition: opacity 0.3s ease;
 
-    &.active {
+    &.is-active {
       opacity: 1;
       pointer-events: auto;
     }

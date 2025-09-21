@@ -1,6 +1,6 @@
 import '@/styles'
-import headerModule from "./src/scripts/header.js";
-import modalModule from "./src/scripts/modal.js";
+import Header from "./src/scripts/header.js";
+import Modal from "./src/scripts/modal.js";
 
-headerModule();
-modalModule();
+new Header();
+new Modal();
