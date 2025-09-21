@@ -8,11 +8,13 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint src --ext .js,.ts,.jsx,.tsx",
-    "lint:fix": "eslint src --ext .js,.jsx --fix"
+    "lint:fix": "eslint src --ext .js,.jsx --fix",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "@delement/eslint-config-master": "^1.1.7",
     "eslint": "^9.35.0",
+    "gh-pages": "^6.3.0",
     "postcss-preset-env": "^10.3.1",
     "postcss-pxtorem": "^6.1.0",
     "sass": "^1.92.1",
