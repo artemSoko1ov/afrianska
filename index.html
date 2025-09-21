@@ -25,6 +25,7 @@
     <button
       class="header__burger-button"
       type="button"
+      data-js-burger-menu-button-open
     >
       <img
         src="./src/assets/icons/burger-button.svg"
@@ -401,8 +402,63 @@
   </div>
 </footer>
 
+<div class="burger-menu__overlay overlay" data-js-burger-menu-overlay>
+  <div class="burger-menu" data-js-burger-menu>
+    <button
+      class="burger-menu__close"
+      type="button"
+      data-js-burger-menu-button-close
+    >
+      <svg
+        width="28"
+        height="28"
+        viewBox="0 0 18 18"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g clip-path="url(#clip0_514_6159)">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M2.83363 2.83434C3.12652 2.54144 3.6014 2.54144 3.89429 2.83434L8.66726 7.60731L13.4402 2.83434C13.7331 2.54144 14.208 2.54144 14.5009 2.83434C14.7938 3.12723 14.7938 3.60211 14.5009 3.895L9.72792 8.66797L14.5009 13.4409C14.7938 13.7338 14.7938 14.2087 14.5009 14.5016C14.208 14.7945 13.7331 14.7945 13.4402 14.5016L8.66726 9.72863L3.89429 14.5016C3.6014 14.7945 3.12652 14.7945 2.83363 14.5016C2.54074 14.2087 2.54074 13.7338 2.83363 13.4409L7.6066 8.66797L2.83363 3.895C2.54074 3.6021 2.54074 3.12723 2.83363 2.83434Z"
+            fill="white"
+          />
+        </g>
+        <defs>
+          <clipPath id="clip0_514_6159">
+            <rect
+              width="18"
+              height="18"
+              fill="white"
+            />
+          </clipPath>
+        </defs>
+      </svg>
+    </button>
+    <nav class="burger-menu__navigation">
+      <ul class="burger-menu__navigation-list">
+        <li class="burger-menu__navigation-item">
+          <a class="burger-menu__navigation-link" href="#">Contact us</a>
+        </li>
+        <li class="burger-menu__navigation-item">
+          <a class="burger-menu__navigation-link" href="#">About</a>
+        </li>
+        <li class="burger-menu__navigation-item">
+          <a class="burger-menu__navigation-link" href="#">Vacancy</a>
+        </li>
+        <li class="burger-menu__navigation-item">
+          <a class="burger-menu__navigation-link" href="#">Lorem</a>
+        </li>
+        <li class="burger-menu__navigation-item">
+          <a class="burger-menu__navigation-link" href="#">Text</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
 <div
-  class="modal-overlay"
+  class="modal-overlay overlay"
   id="modal-overlay"
   data-js-modal-overlay
 >

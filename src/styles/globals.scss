@@ -58,3 +58,23 @@ a {
     scale: 1.05;
   }
 }
+
+.overlay {
+  position: fixed;
+  z-index: 15;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding-inline: 15px;
+  background-color: var(--color-gray);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+
+  &.is-active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
