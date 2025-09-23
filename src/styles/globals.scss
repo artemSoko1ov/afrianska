@@ -2,6 +2,7 @@
 
 html {
   scrollbar-gutter: auto;
+  overflow-x: hidden;
 
   &.is-lock {
     overflow: hidden;
@@ -13,6 +14,7 @@ body {
   flex-direction: column;
   font-family: var(--font-family-base);
   color: var(--color-blue-01);
+  overflow-x: hidden;
 }
 
 h2 {

@@ -9,6 +9,7 @@
   max-width: 540px;
   max-height: 800px;
   width: 100%;
+  overflow-y: auto;
   padding: fluid(56, 25);
   background-color: var(--color-white);
   border-radius: var(--border-radius-l);
@@ -18,6 +19,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100vh;
   }
 
   &__close {

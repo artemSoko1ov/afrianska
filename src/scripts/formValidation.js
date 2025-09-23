@@ -17,7 +17,7 @@ export default class FormValidation {
 
     if (!field.value.trim()) {
       errorMessage = "Поле обязательно для заполнения";
-    } else if (field.name === "email" && !this.isValidEmail(field.value)) {
+    } else if (field.type === "email" && !this.isValidEmail(field.value)) {
       errorMessage = "Введите корректный email";
     }
 
@@ -52,6 +52,9 @@ export default class FormValidation {
       return; 
     }
 
+    const submitButton = this.formElement.querySelector('[type="submit"]');
+    submitButton.disabled = true;
+
     try {
       const response = await fetch("https://d-element.ru/", {
         method: "POST",
@@ -60,7 +63,7 @@ export default class FormValidation {
       this.formElement.reset();
       this.showMessage("Your message successfully sent");
     } catch (error) {
-      this.showMessage("Your message successfully sent");
+      this.showMessage("Mistake. Please try again later.");
     }
   };
 
