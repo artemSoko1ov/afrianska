@@ -1,0 +1,69 @@
+@use '../helpers' as *;
+
+.modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: fluid(46, 30);
+  max-width: 540px;
+  max-height: 800px;
+  width: 100%;
+  overflow-y: auto;
+  padding: fluid(56, 25);
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-l);
+  box-shadow: var(--box-shadow-02);
+
+  &-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  &__close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    padding: 0;
+    background: transparent;
+    border: none;
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      row-gap: 8px;
+    }
+
+    &-input,
+    &-textarea {
+      width: 100%;
+      padding: fluid(21, 15) fluid(36, 20);
+      border: 1px solid #abc4e0;
+      border-radius: var(--border-radius-l);
+    }
+
+    &-textarea {
+      height: fluid(144, 100);
+    }
+
+    &-submit {
+      width: 100%;
+      margin-top: fluid(40, 10);
+      font-weight: 600;
+      text-transform: uppercase;
+      box-shadow: var(--box-shadow-01);
+    }
+  }
+}

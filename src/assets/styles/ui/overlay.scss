@@ -1,0 +1,21 @@
+@use '../helpers' as *;
+
+.overlay {
+  @include hide;
+
+  position: fixed;
+  z-index: 15;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding-inline: 15px;
+  background-color: var(--color-gray);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+
+  &.is-active {
+    @include show;
+    pointer-events: auto;
+  }
+}

@@ -1,0 +1,6 @@
+.focus-element:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  border-radius: var(--border-radius-l);
+  transition: all var(--transition-duration) ease-in-out;
+}

@@ -1,0 +1,19 @@
+@use '../helpers' as *;
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 48px;
+  text-align: center;
+  white-space: nowrap;
+  color: var(--color-white);
+  background: var(--color-blue-04);
+  border: none;
+  border-radius: var(--border-radius-l);
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    scale: 1.05;
+  }
+}
