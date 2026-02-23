@@ -1,25 +1,17 @@
 @use '../helpers' as *;
 
 .header {
-  background-color: transparent;
-  position: sticky;
-  z-index: 5;
+  position: fixed;
   top: 0;
+  z-index: 5;
+  width: 100%;
+  background-color: transparent;
   padding-block: fluid(40, 10) 10px;
   transition-duration: var(--transition-duration);
-  animation-name: scrolling-header;
-  animation-fill-mode: both;
-  animation-timeline: scroll();
-  animation-range: 0 100px;
-
-  @keyframes scrolling-header {
-    to {
-      padding-block: 10px;
-      background-color: var(--color-white);
-    }
-  }
 
   &.is-fixed {
+    box-shadow: var(--box-shadow-02);
+    background-color: var(--color-white);
     padding-block: 10px;
   }
 

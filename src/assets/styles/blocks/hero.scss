@@ -1,10 +1,11 @@
 @use '../helpers' as *;
 
 .hero {
+  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-block: 0 fluid(100, 30);
+  padding: fluid(100, 30);
   background: linear-gradient(0deg, rgba(152, 195, 232, 0.3) 8.84%, rgba(152, 195, 232, 0) 31.12%);
 
   &__inner {
@@ -49,7 +50,7 @@
 
   &__image {
     width: fluid(625, 330);
-    flex: 0 0 68%;
+    flex: 0 0 69%;
     animation: float 4s ease-in-out infinite;
 
     @keyframes float {
