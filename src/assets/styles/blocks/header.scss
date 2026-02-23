@@ -6,7 +6,7 @@
   z-index: 5;
   width: 100%;
   background-color: transparent;
-  padding-block: fluid(40, 10) 10px;
+  padding-block: 40px 10px;
   transition-duration: var(--transition-duration);
 
   &.is-fixed {

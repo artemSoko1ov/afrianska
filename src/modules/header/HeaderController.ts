@@ -1,14 +1,19 @@
-import { headerClasses } from '@/modules/header/constants.ts'
-import { HeaderDom } from '@/modules/header/HeaderDom.ts'
-
+import { BurgerMenuController } from '@/modules/burgerMenu'
+import { headerClasses } from './constants.ts'
+import { HeaderDom } from './HeaderDom.ts'
 /**
  *
  */
 export class HeaderController {
   dom: HeaderDom
 
-  constructor() {
+  burgerMenuController: BurgerMenuController
+
+  constructor(burgerMenuController = new BurgerMenuController()) {
     this.dom = new HeaderDom()
+    this.burgerMenuController = burgerMenuController
+
+    this.fixHeader()
     this.bindEvents()
   }
 
@@ -21,7 +26,12 @@ export class HeaderController {
     }
   }
 
+  private openBurgerMenu = () => {
+    this.burgerMenuController.open()
+  }
+
   private bindEvents() {
     window.addEventListener('scroll', this.fixHeader)
+    this.dom.buttonBurgerMenuOpenElement?.addEventListener('click', this.openBurgerMenu)
   }
 }

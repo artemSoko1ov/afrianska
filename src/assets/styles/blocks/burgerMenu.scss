@@ -1,7 +1,10 @@
 @use '../helpers' as *;
 
 .burger-menu {
-  position: relative;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 15;
   max-width: 500px;
   width: 40vw;
   height: 100vh;
@@ -9,12 +12,13 @@
   background-color: var(--color-blue-04);
   font-size: 20px;
   color: var(--color-white);
-  transition: all 0.3s ease-in-out;
+  pointer-events: none;
+  transform: translateX(100%);
+  transition: transform var(--transition-duration) ease-in-out;
 
-  &__overlay {
-    display: flex;
-    justify-content: end;
-    padding: 0;
+  &.is-open {
+    pointer-events: auto;
+    transform: translateX(0);
   }
 
   &__close {
@@ -38,7 +42,7 @@
 
 @media (max-width: 768px) {
   .burger-menu {
-    //    display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;

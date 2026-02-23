@@ -1,4 +1,7 @@
 import '@/assets/styles'
-import { HeaderController } from '@/modules/header/HeaderController.ts'
+import { BurgerMenuController } from '@/modules/burgerMenu'
+import { HeaderController } from '@/modules/header'
 
-new HeaderController()
+const burgerMenu = new BurgerMenuController()
+
+new HeaderController(burgerMenu)

@@ -4,11 +4,11 @@
 export class HeaderDom {
   rootElement: HTMLElement
 
-  buttonBurgerMenuElement: HTMLButtonElement | null
+  buttonBurgerMenuOpenElement: HTMLButtonElement | null
 
   private readonly selectors = {
     root: '[data-js-header]',
-    buttonBurgerMenu: '[data-js-burger-menu-button-open]',
+    buttonBurgerMenuOpen: '[data-js-burger-menu-button-open]',
   }
 
   constructor() {
@@ -17,8 +17,10 @@ export class HeaderDom {
       throw new Error(`HeaderDom: root element not found for selector "${this.selectors.root}"`)
     }
     this.rootElement = root
-    this.buttonBurgerMenuElement = this.rootElement.querySelector(this.selectors.buttonBurgerMenu)
-    if (!this.buttonBurgerMenuElement) {
+    this.buttonBurgerMenuOpenElement = this.rootElement.querySelector(
+      this.selectors.buttonBurgerMenuOpen,
+    )
+    if (!this.buttonBurgerMenuOpenElement) {
       throw new Error(`HeaderDom: burger button not found`)
     }
   }
