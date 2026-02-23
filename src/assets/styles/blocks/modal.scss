@@ -1,25 +1,30 @@
 @use '../helpers' as *;
 
 .modal {
-  position: relative;
-  //  display: flex;
+  @include hide;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   row-gap: fluid(46, 30);
   max-width: 540px;
   max-height: 800px;
   width: 100%;
-  overflow-y: auto;
   padding: fluid(56, 25);
+  margin: 0;
   background-color: var(--color-white);
   border-radius: var(--border-radius-l);
   box-shadow: var(--box-shadow-02);
+  transition-duration: var(--transition-duration);
+  overflow-y: auto;
 
-  &-overlay {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+  &.is-open {
+    @include show;
   }
 
   &__close {
