@@ -26,14 +26,17 @@
   &__title {
     @include fluid-text(64, 32);
 
+    max-width: 538px;
     font-family: 'Galien', sans-serif;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 112%;
     letter-spacing: 4px;
+    white-space: pre;
   }
 
   &__description {
     max-width: 85%;
+    color: var(--text-color-blue);
     line-height: 26px;
     letter-spacing: 5%;
   }
@@ -41,12 +44,13 @@
   &__button {
     margin-top: 29px;
     width: fluid(200, 160);
+    outline-color: var(--color-blue-02) !important;
   }
 
   &__image {
     width: fluid(625, 330);
     flex: 0 0 68%;
-    animation: float 3s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite;
 
     @keyframes float {
       0% {

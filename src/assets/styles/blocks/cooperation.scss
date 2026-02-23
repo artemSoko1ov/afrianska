@@ -48,6 +48,10 @@
     max-width: 320px;
   }
 
+  &__description {
+    color: var(--text-color-white);
+  }
+
   &__button {
     padding-inline: fluid(74, 28);
   }

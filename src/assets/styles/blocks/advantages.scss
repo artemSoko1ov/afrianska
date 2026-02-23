@@ -11,7 +11,7 @@
 
   &__title {
     position: absolute;
-    width: 358px;
+    width: 360px;
     left: 15px;
     color: var(--color-blue-02);
   }
@@ -45,6 +45,13 @@
       @include fluid-text(20, 16);
 
       line-height: 30px;
+      font-weight: 600;
+
+      & + p {
+        color: var(--text-color-blue);
+        line-height: 26px;
+        letter-spacing: 5%;
+      }
     }
 
     &-image--two {
@@ -73,7 +80,7 @@
     }
 
     &:nth-child(3) {
-      grid-area: 2 / 2 / 3 / 3;
+      grid-area: 2/2/3/3;
     }
   }
 }
@@ -88,6 +95,7 @@
 
     &__title {
       position: static;
+      padding-left: 15px;
     }
 
     &__list {
@@ -95,7 +103,7 @@
       flex-direction: column;
     }
 
-    &__item-1 {
+    &__item:nth-child(1) {
       position: static;
     }
   }

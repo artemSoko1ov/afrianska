@@ -14,18 +14,18 @@
   &__header {
     display: flex;
     align-items: center;
-    column-gap: fluid(100, 50);
+    column-gap: fluid(97, 50);
   }
 
   &__title {
-    width: fluid(223, 120);
+    width: fluid(225, 120);
     color: var(--color-white);
     flex-shrink: 0;
   }
 
   &__description {
     width: fluid(223, 120);
-    color: var(--color-white);
+    color: var(--text-color-white);
     flex-basis: 60%;
     line-height: 26px;
   }
