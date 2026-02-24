@@ -18,11 +18,13 @@ export class OverlayController {
   open() {
     this.dom.rootElement.classList.add(overlayClasses.isActive)
     document.documentElement.classList.add(overlayClasses.isLock)
+    document.querySelector('#app')?.setAttribute('inert', '')
   }
 
   close() {
     this.dom.rootElement.classList.remove(overlayClasses.isActive)
     document.documentElement.classList.remove(overlayClasses.isLock)
+    document.querySelector('#app')?.removeAttribute('inert')
   }
 
   onClick(callback: () => void) {
