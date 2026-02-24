@@ -1,11 +1,12 @@
 @use '../helpers' as *;
 
 .hero {
-  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: fluid(100, 30);
+  margin-top: 60px;
+  padding-inline: fluid(100, 0);
+  padding-block: fluid(96, 40);
   background: linear-gradient(0deg, rgb(152 195 232 / 30%) 8.84%, rgb(152 195 232 / 0%) 31.12%);
 
   &__inner {

@@ -20,12 +20,14 @@ export class BurgerMenuController {
   open() {
     this.dom.rootElement.classList.add(burgerMenuClasses.isOpen)
     this.dom.rootElement.removeAttribute('inert')
+    this.dom.rootElement.setAttribute('aria-hidden', 'false')
     this.overlay.open()
   }
 
   close = () => {
     this.dom.rootElement.classList.remove(burgerMenuClasses.isOpen)
     this.dom.rootElement.setAttribute('inert', '')
+    this.dom.rootElement.setAttribute('aria-hidden', 'true')
     this.overlay.close()
   }
 
