@@ -59,7 +59,7 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (width >= 1200px) {
   .clients__item {
     &:nth-child(4n) {
       border-right: none;
@@ -71,7 +71,7 @@
   }
 }
 
-@media (max-width: 1200px) {
+@media (width <= 1200px) {
   .clients {
     &__list {
       grid-template-columns: repeat(3, 1fr);
@@ -89,7 +89,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .clients {
     border-top-left-radius: 0;
 

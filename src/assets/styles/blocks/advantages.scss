@@ -85,7 +85,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .advantages {
     &__inner {
       flex-direction: column;

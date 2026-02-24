@@ -9,11 +9,16 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "stylelint": "stylelint \"src/**/*.{scss,css}\"",
+    "stylelint:fix": "stylelint \"src/**/*.{scss,css}\" --fix",
     "format": "prettier . --write",
-    "format:check": "prettier . --check"
+    "format:check": "prettier . --check",
+    "check": "npm run lint && npm run stylelint && npm run format:check",
+    "fix": "npm run lint:fix && npm run stylelint:fix && npm run format"
   },
   "devDependencies": {
     "@delement/eslint-config-master": "^1.2.0",
+    "@delement/stylelint-config-master": "^1.1.0",
     "@types/node": "^25.3.0",
     "eslint": "^9.39.3",
     "eslint-config-prettier": "^10.1.8",
@@ -22,6 +27,9 @@
     "postcss-pxtorem": "^6.1.0",
     "prettier": "^3.8.1",
     "sass": "^1.97.3",
+    "stylelint": "^17.3.0",
+    "stylelint-config-standard-scss": "^17.0.0",
+    "stylelint-scss": "^7.0.0",
     "typescript": "~5.9.3",
     "vite": "^7.3.1"
   }

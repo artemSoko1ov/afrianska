@@ -40,7 +40,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .burger-menu {
     display: flex;
     flex-direction: column;

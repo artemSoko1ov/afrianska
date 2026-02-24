@@ -99,7 +99,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .footer {
     &::before {
       inset: 0;
@@ -107,7 +107,7 @@
   }
 }
 
-@media (max-width: 656px) {
+@media (width <= 656px) {
   .footer {
     &__body {
       flex-direction: column;
