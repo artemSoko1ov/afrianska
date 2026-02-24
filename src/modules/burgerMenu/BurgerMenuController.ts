@@ -20,7 +20,6 @@ export class BurgerMenuController {
   open() {
     this.dom.rootElement.classList.add(burgerMenuClasses.isOpen)
     this.dom.rootElement.removeAttribute('inert')
-    this.dom.buttonBurgerMenuCloseElement?.focus()
     this.overlay.open()
   }
 

@@ -66,6 +66,7 @@
     &-submit {
       width: 100%;
       margin-top: fluid(40, 10);
+      outline-color: var(--color-blue-02) !important;
       font-weight: 600;
       text-transform: uppercase;
       box-shadow: var(--box-shadow-01);
