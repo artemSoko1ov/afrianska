@@ -11,12 +11,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  row-gap: fluid(46, 30);
+  row-gap: fluid(40, 30);
   max-width: 540px;
   max-height: 800px;
   width: 100%;
+  height: clamp(100px, 100vh, 950px);
   padding: fluid(56, 25);
-  margin: 0;
+  margin: 10px;
   background-color: var(--color-white);
   border-radius: var(--border-radius-l);
   box-shadow: var(--box-shadow-02);
@@ -43,7 +44,7 @@
   &__form {
     display: flex;
     flex-direction: column;
-    row-gap: 16px;
+    row-gap: 12px;
 
     &-item {
       display: flex;
@@ -57,19 +58,57 @@
       padding: fluid(21, 15) fluid(36, 20);
       border: 1px solid #abc4e0;
       border-radius: var(--border-radius-l);
+
+      &:focus,
+      &:focus-visible {
+        box-shadow: 0 0 6px 1px var(--color-blue-03);
+        outline: none;
+      }
     }
 
     &-textarea {
       height: fluid(144, 100);
     }
 
+    &-error {
+      color: red;
+    }
+
     &-submit {
       width: 100%;
+      height: fluid(54, 30);
       margin-top: fluid(40, 10);
       outline-color: var(--color-blue-02) !important;
       font-weight: 600;
       text-transform: uppercase;
       box-shadow: var(--box-shadow-01);
+
+      &.is-loading {
+        position: relative;
+        color: transparent;
+        pointer-events: none;
+      }
+
+      &.is-loading::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 18px;
+        height: 18px;
+        margin-top: -9px;
+        margin-left: -9px;
+        border: 2px solid rgb(255 255 255 / 40%);
+        border-top-color: var(--color-white);
+        border-radius: 50%;
+        animation: submit-loader-spin 0.7s linear infinite;
+      }
     }
+  }
+}
+
+@keyframes submit-loader-spin {
+  to {
+    transform: rotate(360deg);
   }
 }

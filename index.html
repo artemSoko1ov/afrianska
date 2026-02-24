@@ -473,7 +473,7 @@
         </svg>
       </button>
       <h2 class="modal__title" id="modal-title">Send us message</h2>
-      <form class="modal__form" data-js-form>
+      <form class="modal__form" data-js-form novalidate>
         <div class="modal__form-item">
           <label class="modal__form-label" for="full-name"> Full Name </label>
           <input
@@ -482,8 +482,15 @@
             name="full-name"
             type="text"
             placeholder="Your Name"
+            data-js-form-field="full-name"
+            aria-describedby="full-name-error"
           />
-          <span class="modal__form-error" data-js-form-field-errors></span>
+          <span
+            class="modal__form-error"
+            id="full-name-error"
+            data-js-form-field-errors="full-name"
+            aria-live="polite"
+          ></span>
         </div>
         <div class="modal__form-item">
           <label class="modal__form-label" for="email"> Email </label>
@@ -493,8 +500,15 @@
             name="email"
             type="email"
             placeholder="Your Email"
+            data-js-form-field="email"
+            aria-describedby="email-error"
           />
-          <span class="modal__form-error" data-js-form-field-errors></span>
+          <span
+            class="modal__form-error"
+            id="email-error"
+            data-js-form-field-errors="email"
+            aria-live="polite"
+          ></span>
         </div>
         <div class="modal__form-item">
           <label class="modal__form-label" for="message"> Message </label>
@@ -503,11 +517,23 @@
             id="message"
             name="message"
             placeholder="Your Message"
+            data-js-form-field="message"
+            aria-describedby="message-error"
           ></textarea>
-          <span class="modal__form-error" data-js-form-field-errors></span>
+          <span
+            class="modal__form-error"
+            id="message-error"
+            data-js-form-field-errors="message"
+            aria-live="polite"
+          ></span>
         </div>
         <div class="modal__form-item">
-          <button class="modal__form-submit button focus-element" id="submit" type="submit">
+          <button
+            class="modal__form-submit button focus-element"
+            id="submit"
+            type="submit"
+            data-js-form-button-submit
+          >
             Submit
           </button>
         </div>

@@ -18,11 +18,18 @@ export class ModalController {
     this.overlay.onClick(this.close)
   }
 
-  open = () => {
+  open = (event?: Event) => {
+    ;(event?.currentTarget as HTMLElement | null)?.blur()
     this.dom.rootElement.classList.add(modalClasses.isOpen)
     this.dom.rootElement.removeAttribute('inert')
     this.dom.rootElement.setAttribute('aria-hidden', 'false')
     this.overlay.open()
+
+    setTimeout(() => {
+      this.dom.rootElement
+        .querySelector<HTMLInputElement | HTMLTextAreaElement>('#full-name')
+        ?.focus()
+    }, 50)
   }
 
   close = () => {
@@ -36,4 +43,20 @@ export class ModalController {
     this.dom.buttonModalCloseElement?.addEventListener('click', this.close)
     this.dom.buttonModalOpenElement?.addEventListener('click', this.open)
   }
+
+  // private focusFirstField() {
+  //   const focus = () => {
+  //     const input =
+  //       this.dom.rootElement.querySelector<HTMLInputElement | HTMLTextAreaElement>(
+  //         '[data-js-form-field="full-name"]',
+  //       ) ?? this.dom.rootElement.querySelector<HTMLInputElement | HTMLTextAreaElement>('#full-name')?.focus({ preventScroll: true })
+  //
+  //     input?.focus({ preventScroll: true })
+  //   }
+  //
+  //   requestAnimationFrame(() => {
+  //     this.dom.rootElement.querySelector<HTMLInputElement | HTMLTextAreaElement>('#full-name')?.focus({ preventScroll: true })
+  //     setTimeout(focus, 50)
+  //   })
+  // }
 }
