@@ -1,5 +1,8 @@
-import type { FormFieldName } from './types.ts'
+import type { TFormFieldName } from './types.ts'
 
+/**
+ *
+ */
 export class FormDom {
   rootElement: HTMLFormElement
 
@@ -30,7 +33,7 @@ export class FormDom {
     this.submitButtonElement = submitButton
   }
 
-  getFieldElement(name: FormFieldName) {
+  getFieldElement(name: TFormFieldName) {
     const field = this.rootElement.querySelector(`[name="${name}"]`) as
       | HTMLInputElement
       | HTMLTextAreaElement
@@ -43,7 +46,7 @@ export class FormDom {
     return field
   }
 
-  getFieldErrorElement(name: FormFieldName) {
+  getFieldErrorElement(name: TFormFieldName) {
     const element = this.rootElement.querySelector(
       `[data-js-form-field-errors="${name}"]`,
     ) as HTMLElement | null
@@ -53,5 +56,9 @@ export class FormDom {
     }
 
     return element
+  }
+
+  closeModal() {
+    document.querySelector<HTMLButtonElement>('[data-js-modal-button-close]')?.click()
   }
 }

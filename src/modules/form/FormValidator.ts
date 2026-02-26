@@ -1,9 +1,12 @@
 import { messagesError } from './constants.ts'
-import type { FormErrors, FormFieldName, FormValues } from './types.ts'
+import type { TFormErrors, TFormFieldName, TFormValues } from './types.ts'
 
+/**
+ *
+ */
 export class FormValidator {
-  validate(data: FormValues): FormErrors {
-    const errors: FormErrors = {}
+  validate(data: TFormValues): TFormErrors {
+    const errors: TFormErrors = {}
 
     this.validateRequired('full-name', data['full-name'], errors)
     this.validateRequired('email', data.email, errors)
@@ -24,13 +27,13 @@ export class FormValidator {
     return errors
   }
 
-  validateRequired(name: FormFieldName, value: string, errors: FormErrors) {
+  private validateRequired(name: TFormFieldName, value: string, errors: TFormErrors) {
     if (!value.trim()) {
       errors[name] = messagesError.required
     }
   }
 
-  isEmailValid(email: string): boolean {
+  private isEmailValid(email: string): boolean {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
   }
 }

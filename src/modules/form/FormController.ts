@@ -1,9 +1,12 @@
 import { messagesInfo, stateClasses } from '@/modules/form/constants.ts'
+import { FormDom } from './FormDom.ts'
 import { FormService } from './FormService.ts'
 import { FormValidator } from './FormValidator.ts'
-import { FormDom } from './FromDom.ts'
-import type { FormErrors, FormFieldName, FormValues } from './types.ts'
+import type { TFormErrors, TFormFieldName, TFormValues } from './types.ts'
 
+/**
+ *
+ */
 export class FormController {
   dom: FormDom
 
@@ -11,7 +14,7 @@ export class FormController {
 
   service: FormService
 
-  private readonly fieldNames: FormFieldName[] = ['full-name', 'email', 'message']
+  private readonly fieldNames: TFormFieldName[] = ['full-name', 'email', 'message']
 
   constructor() {
     this.dom = new FormDom()
@@ -21,16 +24,21 @@ export class FormController {
     this.bindEvents()
   }
 
-  handleSubmit = async (event: Event) => {
-    event.preventDefault()
-    this.clearErrors()
-
+  private getTFormValues(): TFormValues {
     const formData = new FormData(this.dom.rootElement)
-    const data: FormValues = {
+
+    return {
       'full-name': String(formData.get('full-name') ?? ''),
       email: String(formData.get('email') ?? ''),
       message: String(formData.get('message') ?? ''),
     }
+  }
+
+  handleSubmit = async (event: Event) => {
+    event.preventDefault()
+    this.clearErrors()
+
+    const data = this.getTFormValues()
     const errors = this.validator.validate(data)
 
     if (Object.keys(errors).length > 0) {
@@ -46,20 +54,26 @@ export class FormController {
     }
   }
 
-  async submitData(data: FormValues) {
+  async submitData(data: TFormValues) {
+    this.dom.submitButtonElement.disabled = true
+
     try {
-      this.dom.submitButtonElement.disabled = true
       await this.service.send(data)
-      this.dom.rootElement.reset()
-      this.dom.submitButtonElement.textContent = messagesInfo.success
-      setTimeout(() => {
-        document.querySelector<HTMLButtonElement>('[data-js-modal-button-close]')?.click()
-      }, 3000)
+      this.handleSubmitSuccess()
     } catch {
       this.dom.submitButtonElement.textContent = messagesInfo.failed
     } finally {
       this.dom.submitButtonElement.disabled = false
     }
+  }
+
+  private handleSubmitSuccess() {
+    this.dom.rootElement.reset()
+    this.dom.submitButtonElement.textContent = messagesInfo.success
+
+    setTimeout(() => {
+      this.dom.closeModal()
+    }, 3000)
   }
 
   clearErrors() {
@@ -71,7 +85,7 @@ export class FormController {
     })
   }
 
-  renderErrors(errors: FormErrors) {
+  renderErrors(errors: TFormErrors) {
     this.fieldNames.forEach((name) => {
       const message = errors[name]
       if (!message) {

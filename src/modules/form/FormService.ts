@@ -1,9 +1,12 @@
-import type { FormValues } from './types.ts'
+import type { TFormValues } from './types.ts'
 
+/**
+ *
+ */
 export class FormService {
   private readonly url = 'https://jsonplaceholder.typicode.com/users'
 
-  async send(data: FormValues): Promise<void> {
+  async send(data: TFormValues): Promise<void> {
     const response = await fetch(this.url, {
       method: 'POST',
       headers: {

@@ -2,7 +2,7 @@ import '@/assets/styles'
 import { BurgerMenuController } from '@/modules/burgerMenu'
 import { FormController } from '@/modules/form'
 import { HeaderController } from '@/modules/header'
-import { ModalController } from '@/modules/modal/ModalController.ts'
+import { ModalController } from '@/modules/modal'
 
 const burgerMenu = new BurgerMenuController()
 

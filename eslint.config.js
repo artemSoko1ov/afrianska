@@ -19,11 +19,6 @@ export default [
     },
     rules: {
       ...prettierConfig.rules,
-      'prettier/prettier': 'off',
-      '@typescript-eslint/naming-convention': 'off',
-      'jsdoc/require-description': 'off',
-      'jsdoc/require-returns': 'off',
-      'jsdoc/require-jsdoc': 'off',
     },
   },
   {
