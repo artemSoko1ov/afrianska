@@ -1,4 +1,4 @@
-import { BurgerMenuController } from '@/modules/burgerMenu'
+import type { BurgerMenuController } from '@/modules/burgerMenu'
 import { headerClasses } from './constants.ts'
 import { HeaderDom } from './HeaderDom.ts'
 /**
@@ -9,15 +9,15 @@ export class HeaderController {
 
   burgerMenuController: BurgerMenuController
 
-  constructor(burgerMenuController = new BurgerMenuController()) {
+  constructor(burgerMenuController: BurgerMenuController) {
     this.dom = new HeaderDom()
     this.burgerMenuController = burgerMenuController
 
-    this.fixHeader()
+    this.updateHeaderPosition()
     this.bindEvents()
   }
 
-  fixHeader = () => {
+  updateHeaderPosition = () => {
     const scrollY = window.scrollY
     if (scrollY > 0) {
       this.dom.rootElement.classList.add(headerClasses.isFixed)
@@ -31,7 +31,7 @@ export class HeaderController {
   }
 
   private bindEvents() {
-    window.addEventListener('scroll', this.fixHeader)
+    window.addEventListener('scroll', this.updateHeaderPosition)
     this.dom.buttonBurgerMenuOpenElement?.addEventListener('click', this.openBurgerMenu)
   }
 }

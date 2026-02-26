@@ -1,5 +1,5 @@
 import { modalClasses } from '@/modules/modal/constants.ts'
-import { OverlayController } from '@/modules/overlay/OverlayController.ts'
+import { OverlayController } from '@/modules/overlay'
 import { ModalDom } from './ModalDom.ts'
 
 /**
@@ -15,11 +15,10 @@ export class ModalController {
     this.overlay = new OverlayController()
 
     this.bindEvents()
-    this.overlay.onClick(this.close)
+    this.overlay.onCloseCallback(this.close)
   }
 
-  open = (event?: Event) => {
-    ;(event?.currentTarget as HTMLElement | null)?.blur()
+  open = () => {
     this.dom.rootElement.classList.add(modalClasses.isOpen)
     this.dom.rootElement.removeAttribute('inert')
     this.dom.rootElement.setAttribute('aria-hidden', 'false')
@@ -27,7 +26,7 @@ export class ModalController {
 
     setTimeout(() => {
       this.dom.rootElement
-        .querySelector<HTMLInputElement | HTMLTextAreaElement>('#full-name')
+        .querySelector<HTMLInputElement | HTMLTextAreaElement>(`[data-js-form-field='full-name']`)
         ?.focus()
     }, 50)
   }
@@ -43,20 +42,4 @@ export class ModalController {
     this.dom.buttonModalCloseElement?.addEventListener('click', this.close)
     this.dom.buttonModalOpenElement?.addEventListener('click', this.open)
   }
-
-  // private focusFirstField() {
-  //   const focus = () => {
-  //     const input =
-  //       this.dom.rootElement.querySelector<HTMLInputElement | HTMLTextAreaElement>(
-  //         '[data-js-form-field="full-name"]',
-  //       ) ?? this.dom.rootElement.querySelector<HTMLInputElement | HTMLTextAreaElement>('#full-name')?.focus({ preventScroll: true })
-  //
-  //     input?.focus({ preventScroll: true })
-  //   }
-  //
-  //   requestAnimationFrame(() => {
-  //     this.dom.rootElement.querySelector<HTMLInputElement | HTMLTextAreaElement>('#full-name')?.focus({ preventScroll: true })
-  //     setTimeout(focus, 50)
-  //   })
-  // }
 }

@@ -24,7 +24,7 @@ export class FormController {
     this.bindEvents()
   }
 
-  private getTFormValues(): TFormValues {
+  private getFormValues(): TFormValues {
     const formData = new FormData(this.dom.rootElement)
 
     return {
@@ -38,7 +38,7 @@ export class FormController {
     event.preventDefault()
     this.clearErrors()
 
-    const data = this.getTFormValues()
+    const data = this.getFormValues()
     const errors = this.validator.validate(data)
 
     if (Object.keys(errors).length > 0) {
@@ -61,9 +61,7 @@ export class FormController {
       await this.service.send(data)
       this.handleSubmitSuccess()
     } catch {
-      this.dom.submitButtonElement.textContent = messagesInfo.failed
-    } finally {
-      this.dom.submitButtonElement.disabled = false
+      this.handleSubmitFailed()
     }
   }
 
@@ -73,7 +71,21 @@ export class FormController {
 
     setTimeout(() => {
       this.dom.closeModal()
-    }, 3000)
+      this.resetButton()
+    }, 2500)
+  }
+
+  private handleSubmitFailed() {
+    this.dom.submitButtonElement.textContent = messagesInfo.failed
+
+    setTimeout(() => {
+      this.resetButton()
+    }, 2500)
+  }
+
+  private resetButton() {
+    this.dom.submitButtonElement.textContent = messagesInfo.submit
+    this.dom.submitButtonElement.disabled = false
   }
 
   clearErrors() {

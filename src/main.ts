@@ -4,8 +4,21 @@ import { FormController } from '@/modules/form'
 import { HeaderController } from '@/modules/header'
 import { ModalController } from '@/modules/modal'
 
-const burgerMenu = new BurgerMenuController()
+class App {
+  burgerMenu: BurgerMenuController
 
-new HeaderController(burgerMenu)
-new ModalController()
-new FormController()
+  header: HeaderController
+
+  modal: ModalController
+
+  form: FormController
+
+  constructor() {
+    this.burgerMenu = new BurgerMenuController()
+    this.header = new HeaderController(this.burgerMenu)
+    this.modal = new ModalController()
+    this.form = new FormController()
+  }
+}
+
+new App()

@@ -9,7 +9,7 @@ export class OverlayController {
 
   lastFocusedBeforeOpen: HTMLElement | null
 
-  private onClickCallback: (() => void) | null = null
+  private onClose: (() => void) | null = null
 
   constructor() {
     this.dom = new OverlayDom()
@@ -22,27 +22,27 @@ export class OverlayController {
     this.lastFocusedBeforeOpen = document.activeElement as HTMLElement | null
     this.dom.rootElement.classList.add(overlayClasses.isActive)
     document.documentElement.classList.add(overlayClasses.isLock)
-    document.querySelector('#app')?.setAttribute('inert', '')
+    this.dom.mainAppElement.setAttribute('inert', '')
   }
 
   close() {
     this.dom.rootElement.classList.remove(overlayClasses.isActive)
     document.documentElement.classList.remove(overlayClasses.isLock)
-    document.querySelector('#app')?.removeAttribute('inert')
+    this.dom.mainAppElement.removeAttribute('inert')
     this.lastFocusedBeforeOpen?.focus()
   }
 
-  onClick(callback: () => void) {
-    this.onClickCallback = callback
+  onCloseCallback(callback: () => void) {
+    this.onClose = callback
   }
 
   private handleClick = () => {
-    this.onClickCallback?.()
+    this.onClose?.()
   }
 
   private handleKeydown = (event: KeyboardEvent) => {
     if (event.key === 'Escape') {
-      this.onClickCallback?.()
+      this.onClose?.()
     }
   }
 

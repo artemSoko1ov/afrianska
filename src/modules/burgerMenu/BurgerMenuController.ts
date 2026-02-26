@@ -1,4 +1,4 @@
-import { OverlayController } from '@/modules/overlay/OverlayController.ts'
+import { OverlayController } from '@/modules/overlay'
 import { BurgerMenuDom } from './BurgerMenuDom.ts'
 import { burgerMenuClasses } from './constants.ts'
 /**
@@ -14,7 +14,7 @@ export class BurgerMenuController {
     this.overlay = new OverlayController()
 
     this.bindEvents()
-    this.overlay.onClick(this.close)
+    this.overlay.onCloseCallback(this.close)
   }
 
   open() {

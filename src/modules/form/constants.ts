@@ -8,6 +8,7 @@ export const messagesError = {
 export const messagesInfo = {
   success: 'Your message successfully sent',
   failed: 'Failed to send your message. Please try again.',
+  submit: 'Submit',
 }
 
 export const stateClasses = {

@@ -34,7 +34,7 @@ export class FormDom {
   }
 
   getFieldElement(name: TFormFieldName) {
-    const field = this.rootElement.querySelector(`[name="${name}"]`) as
+    const field = this.rootElement.querySelector(`[data-js-form-field="${name}"]`) as
       | HTMLInputElement
       | HTMLTextAreaElement
       | null
